@@ -55,9 +55,11 @@ if y.check_token():
             ftp.retrbinary('RETR '+ff_name, load_file.write, 1024)
             load_file.close()
             # Отправляем на сервер
-            y.upload(ff_name, "disk:/Варя фото/"+ff_name)
+            y.upload(ff_name, ya_path+"/"+ff_name)
             # Удаляем на ПК
             os.remove(ff_name)
-            ftp.close()
+        ftp.close()
+            #ftp.quit()
 else:
     console.print("[red] Проверьте токен. Доступ к ЯндексДиск отклонен[/red]")
+    
